@@ -3,7 +3,7 @@
 
 
 <%
-  # this is called by the index method in 
+  # this is called by the index method in
   # the films controller
 %>
 
@@ -14,8 +14,8 @@
 <% @films.each do |film| %>
   <h3><%= film.title %></h3>
   <div>
-    <%= 
-      # film.description 
+    <%=
+      # film.description
       truncate(film.description, :length => 100)
     %>
   </div>

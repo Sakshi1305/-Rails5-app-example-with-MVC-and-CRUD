@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% reviews.each do |review| %>
+      <tr>
+        <td>
+          <%=  review.full_name %>
+        </td>
+        <td>
+          <%= review.email %>
+        </td>
+        <td>
+          <%= review.message %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

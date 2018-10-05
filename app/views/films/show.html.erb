@@ -3,7 +3,20 @@
 <h3><%= @film.title %></h3>
 
 <p><%= @film.description %></p>
+<div id="results"><%= render 'reviews/reviews', reviews: (@film.reviews).order(created_at: :desc) %></div>
 
+<%= form_for (Review.new), url: reviews_film_path(@film), method: :post, remote: :true do |f| %>
+  <%= f.label :full_name %><br>
+  <%= f.text_field :full_name %><br>
+  <br>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %><br>
+  <br>
+  <%= f.label :message %><br>
+  <%= f.text_area :message %><br>
+  <br>
+  <%= f.submit %>
+<% end %>
 <%= link_to "Edit Film Details", edit_film_path(@film) %>
 <br/>
 <%= link_to "Delete Film", film_path(@film), method: :delete, data: {confirm: "Are you sure?"} %>

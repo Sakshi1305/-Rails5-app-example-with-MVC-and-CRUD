@@ -5,7 +5,7 @@ class FilmsController < ApplicationController
   def index
     # @films = Film.all
     @films = Film.all.order('created_at DESC')
-    # same as first line but sort in descending (DESC) order 
+    # same as first line but sort in descending (DESC) order
     # based on what time they were created
   end
 
@@ -51,7 +51,7 @@ class FilmsController < ApplicationController
   def film_params
   	# require the :film table
   	# security mesure called 'strong params' where we must permit
-  	# the different attributes (:title, :description) that you 
+  	# the different attributes (:title, :description) that you
   	# want to allow to be written to our database
   	params.require(:film).permit(:title, :description);
   end
