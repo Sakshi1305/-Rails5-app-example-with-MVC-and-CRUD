@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180928050924) do
+ActiveRecord::Schema.define(version: 20181008060611) do
 
   create_table "films", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20180928050924) do
     t.integer  "rating_stars"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "permalink"
+    t.index ["permalink"], name: "index_posts_on_permalink"
   end
 
   create_table "reviews", force: :cascade do |t|
