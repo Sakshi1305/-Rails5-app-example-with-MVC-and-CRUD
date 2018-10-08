@@ -1,1 +1,4 @@
+<% @reviews.errors.full_messages.each do |message| %>
+  $('#helpBlock').append('<div class="notice"><%= escape_javascript(message)%></div>');
+<% end %>
 $('#results').html("<%= j render 'reviews', reviews: @film.reviews.order(created_at: :desc) %>")

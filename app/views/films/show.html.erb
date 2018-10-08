@@ -4,13 +4,13 @@
 
 <p><%= @film.description %></p>
 <div id="results"><%= render 'reviews/reviews', reviews: (@film.reviews).order(created_at: :desc) %></div>
-
+<span id="helpBlock" class="help-block"></span>
 <%= form_for (Review.new), url: reviews_film_path(@film), method: :post, remote: :true do |f| %>
   <%= f.label :full_name %><br>
   <%= f.text_field :full_name %><br>
   <br>
   <%= f.label :email %><br>
-  <%= f.text_field :email %><br>
+  <%= f.email_field :email %><br>
   <br>
   <%= f.label :message %><br>
   <%= f.text_area :message %><br>
